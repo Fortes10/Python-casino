@@ -1,18 +1,6 @@
 import random
 import time
-
-MAX_LINES = 3
-MAX_BET = 100
-MIN_BET = 1
-
-ROWS = 3
-
-symbols_value = {
-    '💎': 8,
-    '🍒': 6,
-    '🍋': 4,
-    '🔔': 2
-}
+from constants import MAX_BET, MIN_BET, MAX_LINES, ROWS, symbols_value
 
 
 ###### INPUTS ######
@@ -50,7 +38,7 @@ def get_bet():
         amount = input("Enter the amount you would like to bet: $")
         if amount.isdigit():
             amount = int(amount)
-            if amount > 0:
+            if MIN_BET <= amount <= MAX_BET:
                 break
             else:
                 print(f"Amount must be between ${MIN_BET} and ${MAX_BET}.")
